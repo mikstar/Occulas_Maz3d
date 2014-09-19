@@ -26,17 +26,14 @@ public class MazeTilter : MonoBehaviour {
 		{
 			if(Input.GetButtonDown("GiantX"))
 			{
-				turning = true;
 				startRotate(new Vector3(90,0,0),Input.GetAxis("GiantX"));
 			}
 			else if(Input.GetButtonDown("GiantY"))
 			{
-				turning = true;
 				startRotate(new Vector3(0,90,0),Input.GetAxis("GiantY"));
 			}
 			else if(Input.GetButtonDown("GiantZ"))
 			{
-				turning = true;
 				startRotate(new Vector3(0,0,90),Input.GetAxis("GiantZ"));
 			}
 		}
@@ -63,6 +60,7 @@ public class MazeTilter : MonoBehaviour {
 	{
 		if(direct != 0)
 		{
+			turning = true;
 			GetComponent<AudioSource>().Play();
 			turnAxis = axis;
 			intDirect = (int)(direct/Mathf.Abs(direct));
@@ -71,10 +69,6 @@ public class MazeTilter : MonoBehaviour {
 			maze.transform.parent = transform;
 
 
-		}
-		else
-		{
-			turning = false;
 		}
 	}
 
